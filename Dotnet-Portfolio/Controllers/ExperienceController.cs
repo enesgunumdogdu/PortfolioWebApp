@@ -27,5 +27,13 @@ namespace Dotnet_Portfolio.Controllers
             context.SaveChanges();
             return RedirectToAction("ExperienceList");
         }
+
+        public IActionResult DeleteExperience(int id)
+        {
+            var value = context.Experinces.Find(id);
+            context.Experinces.Remove(value);
+            context.SaveChanges();
+            return RedirectToAction("ExperienceList");
+        }
     }
 }
