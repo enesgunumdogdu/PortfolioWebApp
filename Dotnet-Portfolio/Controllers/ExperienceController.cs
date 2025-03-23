@@ -35,5 +35,27 @@ namespace Dotnet_Portfolio.Controllers
             context.SaveChanges();
             return RedirectToAction("ExperienceList");
         }
+
+        [HttpGet]
+        public IActionResult UpdateExperience(int id)
+        {
+            var value = context.Experinces.Find(id);
+            return View("UpdateExperience", value);
+        }
+
+        [HttpPost]
+        public IActionResult UpdateExperience(Experience experience)
+        {
+            //var value = context.Experinces.Find(experience.ExperienceId);
+            //value.Head = experience.Head;
+            //value.Title = experience.Title;
+            //value.Date = experience.Date;
+            //value.Description = experience.Description;
+            //context.SaveChanges();
+            //return RedirectToAction("ExperienceList");
+            context.Experinces.Update(experience);
+            context.SaveChanges();
+            return RedirectToAction("ExperienceList");
+        }
     }
 }
