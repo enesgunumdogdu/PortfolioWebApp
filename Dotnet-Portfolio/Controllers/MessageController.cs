@@ -28,5 +28,13 @@ namespace Dotnet_Portfolio.Controllers
             context.SaveChanges();
             return RedirectToAction("Inbox");
         }
+
+        public IActionResult DeleteMessage(int id)
+        {
+            var value = context.Messages.Find(id);
+            context.Messages.Remove(value);
+            context.SaveChanges();
+            return RedirectToAction("Inbox");
+        }
     }
 }

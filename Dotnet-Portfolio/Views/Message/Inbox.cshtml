@@ -27,7 +27,6 @@
 									<th scope="col">Date</th>
 									<th scope="col">View The Message</th>
 									<th scope="col">Status</th>
-									<th scope="col">Update</th>
 									<th scope="col">Delete</th>
 								</tr>
 							</thead>
@@ -48,8 +47,7 @@
 										{
 											<td><a href="/Message/ChangeIsReadToTrue/@item.MessageId" class="btn btn-info">Mark as Read</a></td>
 										}
-										<td><a href="/Experience/UpdateExperience/@item.MessageId" class="btn btn-success">Update</a></td>
-										<td><a href="/Experience/DeleteExperience/@item.MessageId" class="btn btn-danger">Delete</a></td>
+										<td><a href="/Message/DeleteMessage/@item.MessageId" class="btn btn-danger">Delete</a></td>
 									</tr>
 								}
 							</tbody>
