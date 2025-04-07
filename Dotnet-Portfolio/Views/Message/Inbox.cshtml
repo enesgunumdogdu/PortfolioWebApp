@@ -1,8 +1,8 @@
 ﻿@model List<Message>
 
 @{
-    ViewData["Title"] = "Inbox";
-    Layout = "~/Views/Layout/Index.cshtml";
+	ViewData["Title"] = "Inbox";
+	Layout = "~/Views/Layout/Index.cshtml";
 }
 
 <div class="content">
@@ -40,7 +40,14 @@
 										<td>@item.Subject</td>
 										<td>@item.SendDate.ToShortDateString()</td>
 										<td><a href="/Experience/DeleteExperience/@item.MessageId" class="btn btn-warning">View Message</a></td>
-										<td><a href="/Experience/DeleteExperience/@item.MessageId" class="btn btn-dark">Change Status</a></td>
+										@if (item.isRead == true)
+										{
+											<td><a href="/Message/ChangeIsReadToFalse/@item.MessageId" class="btn btn-dark">Mark as Unread</a></td>
+										}
+										else
+										{
+											<td><a href="/Message/ChangeIsReadToTrue/@item.MessageId" class="btn btn-info">Mark as Read</a></td>
+										}
 										<td><a href="/Experience/UpdateExperience/@item.MessageId" class="btn btn-success">Update</a></td>
 										<td><a href="/Experience/DeleteExperience/@item.MessageId" class="btn btn-danger">Delete</a></td>
 									</tr>
