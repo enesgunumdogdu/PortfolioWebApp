@@ -22,6 +22,7 @@ namespace Dotnet_Portfolio.Controllers
         [HttpPost]
         public IActionResult CreateToDoList(ToDoList toDoList)
         {
+            toDoList.Status = false;
             context.ToDoLists.Add(toDoList);
             context.SaveChanges();
             return RedirectToAction("Index");
