@@ -50,5 +50,23 @@ namespace Dotnet_Portfolio.Controllers
             context.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public IActionResult ChangeToDoListStatusToTrue(int id)
+        {
+            var value = context.ToDoLists.Find(id);
+            value.Status = true;
+            context.ToDoLists.Update(value);
+            context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult ChangeToDoListStatusToFalse(int id)
+        {
+            var value = context.ToDoLists.Find(id);
+            value.Status = false;
+            context.ToDoLists.Update(value);
+            context.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
